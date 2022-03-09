@@ -1,25 +1,22 @@
 /* @jsx createElement */
 import { render, createElement } from "./react";
 
+function Title(props) {
+  return <h1>{props.children}</h1>;
+}
 
-// const vdom = createElement('p', {} 
-// , createElement('h1', {}, "React 만들기")
-// , createElement('ul', {}, 
-//     createElement('li',{style: "color:red"}, "첫번째 아이템"),
-//     createElement('li',{style: "color:blue"}, "두번째 아이템"),
-//     createElement('li',{style: "color:green"}, "세번째 아이템"),
-//     )
-//   );
+function Item(props) {
+  return <li style={`color:${props.color}`}>{props.children}</li>;
+}
 
-const vdom = <p>
-  <h1>React 만들기</h1>
+const vdom = 
+<p>
+  <Title>React 잘 만들기</Title>
   <ul>
-    <li style="color:red">첫번째 아이템</li>
-    <li style="color:blue">두번째 아이템</li>
-    <li style="color:green">세번째 아이템</li>
+    <Item color="red">첫번째 아이템</Item>
+    <Item color="blue">두번째 아이템</Item>
+    <Item color="green">세번째 아이템</Item>
   </ul>
 </p>;
-
-console.log(vdom);
 
 render(vdom, document.querySelector('#app'));
